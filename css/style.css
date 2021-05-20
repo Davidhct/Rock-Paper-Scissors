@@ -5,18 +5,19 @@
 }
 body {
   background: rgb(71, 112, 173);
+  font-family: "Press Start 2P", cursive;
 }
 
 header {
   display: flex;
   text-align: center;
   justify-content: center;
+  margin-bottom: 2rem;
 }
 
 #score {
   color: rgb(255, 255, 255);
   border-radius: 4px;
-  font-family: "Press Start 2P", cursive;
   font-size: 20px;
   display: flex;
   flex-direction: column;
@@ -63,38 +64,62 @@ main {
 }
 #sction-one {
   display: flex;
-  width: 80vw;
+  width: 100vw;
+  /* transform: translate(0%, 0%); */
+  justify-content: space-evenly;
 }
 #left,
 #right {
-  width: 80vw;
-  /* text-align: center; */
+  display: flex;
+  /* width: 80vw; */
   border: 2px solid black;
-  height: 298px;
+  width: 18.49vw;
+  height: 253px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
 
 #middle {
-  width: 30vw;
-  /* height: 150px; */
+  width: 250px;
+  height: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 44px;
+  /* border: 3px solid wheat; */
+  border-radius: 123px;
+  background: #d6d4d4;
 }
 
 #section-two {
   display: flex;
 }
 #bottom {
-  width: 30vw;
+  width: 100vw;
   /* text-align: center; */
   border: 2px solid black;
-  height: 298px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  /* height: 298px; */
+  /* display: flex;*/
+  background: #418db1;
 }
 
+#bottom h2 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
 button {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.btn {
   width: 110px;
+  cursor: pointer;
+}
+
+.paper,
+.rock {
+  transform: rotateY(180deg);
 }
