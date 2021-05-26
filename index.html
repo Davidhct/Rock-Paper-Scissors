@@ -13,51 +13,44 @@
     <title>Rock Paper Scissors</title>
   </head>
   <body>
-    <header>
-      <article id="score">
-        <div id="div-players">
-          <p id="player">Player</p>
-          <p id="computer">Computer</p>
+    <section class="game">
+      <!-- scores -->
+      <div class="score">
+        <div id="player-score">
+          <h2>Player</h2>
+          <p>0</p>
         </div>
-        <div id="div-score">
-          <span id="player-score">0</span>
-          <span id="computer-score">0</span>
+        <div id="computer-score">
+          <h2>Computer</h2>
+          <p>0</p>
         </div>
-      </article>
-    </header>
-    <main>
-      <section id="sction-one">
-        <article id="left">
-          <h3>Player</h3>
-          <img class="btn rock" src="./css/images/rock.png" alt="rock" />
-        </article>
-        <article id="middle">
-          <h3>?</h3>
-        </article>
-        <article id="right">
-          <h3>Computer</h3>
-          <img class="btn rock-comp" src="./css/images/rock.png" alt="rock" />
-        </article>
-      </section>
-      <section id="section-two">
-        <article id="bottom">
-          <h2>Choose an option</h2>
-          <button id="rock">
-            <img class="btn rock" src="./css/images/rock.png" alt="rock" />
-          </button>
+      </div>
+      <!-- match -->
+      <div class="match">
+        <h2 class="winner">Choose an option</h2>
+        <div class="hands">
+          <img src="./css/images/rock.png" alt="" id="player-hand" />
+          <img src="./css/images/rock.png" alt="" id="computer-hand" />
+        </div>
+
+        <div class="options">
+          <button id="rock"><img src="./css/images/rock.png" alt="" /></button>
           <button id="paper">
-            <img class="btn paper" src="./css/images/paper.png" alt="paper" />
+            <img src="./css/images/paper.png" alt="" />
           </button>
           <button id="scissors">
-            <img
-              class="btn scissors"
-              src="./css/images/scissors.png"
-              alt="scissors"
-            />
+            <img src="./css/images/scissors.png" alt="" />
           </button>
-        </article>
-      </section>
-    </main>
+        </div>
+      </div>
+    </section>
+    <!-- modal -->
+    <div class="modal hidden">
+      <button class="close-modal">&times;</button>
+      <h1>YOU WIN!!!!!!🏆</h1>
+    </div>
+    <div class="overlay hidden"></div>
+
     <script src="./index.js"></script>
   </body>
 </html>
