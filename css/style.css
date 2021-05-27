@@ -15,15 +15,14 @@ body {
 
 .game {
   width: 90vw;
+  background: rgb(240 179 179 / 24%);
 }
 
 .score {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  height: 30vh;
-
-  padding-top: 20px;
+  height: 26vh;
 }
 
 .score p {
@@ -32,27 +31,55 @@ body {
   color: rgb(255, 0, 0);
 }
 
+.match {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .winner {
   font-size: 30px;
 }
 
 .hands {
-  height: 40vh;
+  height: 37vh;
+  width: 70vw;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
-#player-hand,
-#rock,
-#paper {
+.rock,
+.paper {
   transform: rotateY(180deg);
+}
+
+.computer-hand {
+  transform: rotateY(180deg);
+}
+#scissors:active,
+#rock:active,
+#paper:active {
+  width: 148px;
+}
+
+.options {
+  width: 70vw;
+  background: rgb(0 255 149 / 25%);
+  /* padding: 4%; */
+  border-radius: 10px;
+}
+
+.title-option h2 {
+  padding-bottom: 6%;
+  font-size: 30px;
 }
 
 button {
   background: none;
   outline: none;
   border: none;
+  padding: 2%;
 }
 
 .hands img {
