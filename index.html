@@ -16,25 +16,20 @@
     <section class="game">
       <!-- scores -->
       <div class="score">
-        <div id="player-score">
+        <div>
           <h2>Player</h2>
-          <p>0</p>
+          <p id="player-score">0</p>
         </div>
-        <div id="computer-score">
+        <div>
           <h2>Computer</h2>
-          <p>0</p>
+          <p id="computer-score">0</p>
         </div>
       </div>
       <!-- match -->
       <div class="match">
         <h2 class="winner">Choose an option</h2>
         <div class="hands">
-          <img
-            src="./css/images/rock.png"
-            alt=""
-            class="rock"
-            id="player-hand"
-          />
+          <img src="./css/images/rock.png" alt="" id="player-hand" />
           <img src="./css/images/rock.png" alt="" id="computer-hand" />
         </div>
 
@@ -43,13 +38,13 @@
         </div>
 
         <div class="options">
-          <button class="rock option">
+          <button class="rock">
             <img id="rock" src="./css/images/rock.png" alt="" />
           </button>
-          <button class="paper option">
+          <button class="paper">
             <img id="paper" src="./css/images/paper.png" alt="" />
           </button>
-          <button class="scissors option">
+          <button class="scissors">
             <img id="scissors" src="./css/images/scissors.png" alt="" />
           </button>
         </div>
@@ -58,7 +53,7 @@
     <!-- modal -->
     <div class="modal hidden">
       <button class="close-modal">&times;</button>
-      <h1>YOU WIN!!!!!!🏆</h1>
+      <h1 id="title-win-lose"></h1>
     </div>
     <div class="overlay hidden"></div>
 

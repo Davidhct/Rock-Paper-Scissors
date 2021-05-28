@@ -54,7 +54,7 @@ body {
   transform: rotateY(180deg);
 }
 
-.computer-hand {
+.rotate-hand {
   transform: rotateY(180deg);
 }
 #scissors:active,

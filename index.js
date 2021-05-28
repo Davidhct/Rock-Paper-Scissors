@@ -1,74 +1,102 @@
-let isRotate = false;
-
-let option = document.querySelectorAll(".option");
+const options = document.querySelectorAll(".options button");
 let playerHand = document.getElementById("player-hand");
 let computerHand = document.getElementById("computer-hand");
-const computerHands = [
-  {
-    id: "1",
-    name: "comp-rock",
-    src: "./css/images/rock.png",
-  },
-  {
-    id: "2",
-    name: "comp-paper",
-    src: "./css/images/paper.png",
-  },
-  {
-    id: "3",
-    name: "comp-scissors",
-    src: "./css/images/scissors.png",
-  },
-];
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+let playerScore = document.getElementById("player-score");
+let computerScore = document.getElementById("computer-score");
+document.querySelector(".close-modal").addEventListener("click", closeModal);
+
+let playerChoice;
+let computerChoice;
+
+let pScore = 0;
+let cScore = 0;
 
 playerOptions();
 
+const resetGame = () => {
+  pScore = 0;
+  cScore = 0;
+  playerScore.innerHTML = pScore;
+  computerScore.innerHTML = cScore;
+  playerHand.src = "./css/images/rock.png";
+  computerHand.src = "./css/images/rock.png";
+};
+
+const displayModal = () => {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+};
+
+function closeModal() {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+
+  resetGame();
+}
+
+overlay.addEventListener("click", () => closeModal());
+
+const sumScore = () => {
+  const modalTitle = document.getElementById("title-win-lose");
+  if (Number(playerScore.innerHTML) > Number(computerScore.innerHTML)) {
+    modalTitle.innerHTML = "Player wins!! 😎🏆";
+    displayModal();
+  } else if (Number(computerScore.innerHTML) > Number(playerScore.innerHTML)) {
+    modalTitle.innerHTML = "Computer wins!! 💻🏆";
+    displayModal();
+  } else {
+    modalTitle.innerHTML = "It's a tie!!👔";
+    displayModal();
+  }
+};
+
 function playerOptions() {
-  option.forEach((op) => {
-    op.addEventListener("click", () => {
-      playerHand = document.getElementById("player-hand");
-      playerHand.classList.remove("rock");
-
-      if (op.classList.contains("scissors")) {
-        playerHand.classList.remove("rock");
-        playerHand.classList.remove("paper");
-        playerHand.classList.add("scissors");
-
-        console.log(playerHand);
-      } else if (op.classList.contains("rock")) {
-        if (!playerHand.classList.contains("rock")) {
-          playerHand.classList.add("rock");
-          playerHand.classList.remove("paper");
-          playerHand.classList.remove("scissors");
-        }
-      } else if (op.classList.contains("paper")) {
-        playerHand.classList.add("paper");
-        playerHand.classList.remove("rock");
-        playerHand.classList.remove("scissors");
-      }
-      playerHand.src = op.childNodes[1].src;
+  options.forEach((op) => {
+    op.addEventListener("click", function () {
+      playerHand.src = `./css/images/${this.classList.value}.png`;
+      playerChoice = this.classList.value;
       computerOptions();
     });
   });
 }
 
 function computerOptions() {
-  computerHand = document.getElementById("computer-hand");
+  const computerHands = ["rock", "paper", "scissors"];
+  computerChoice = computerHands[Math.floor(Math.random() * 3)];
 
-  if (computerHand.classList.contains("computer-hand")) {
-    computerHand.classList.remove("computer-hand");
-  }
+  computerHand.src = `./css/images/${computerChoice}.png`;
 
-  let randOp = computerHands[Math.trunc(Math.random() * 3)];
-
-  if (randOp.name === "comp-scissors") {
-    computerHand.classList.add("computer-hand");
-  }
-  computerHand.src = randOp.src;
-  computerHand.classList.add(randOp.name);
-  checkWin();
+  checkHands();
 }
 
-function checkWin() {
-  console.log(playerHand, computerHand);
+function checkHands() {
+  if (playerChoice === computerChoice) {
+    pScore;
+    cScore;
+  } else if (playerChoice === "rock") {
+    if (computerChoice === "scissors") {
+      pScore++;
+    } else {
+      cScore++;
+    }
+  } else if (playerChoice === "paper") {
+    if (computerChoice === "rock") {
+      pScore++;
+    } else {
+      cScore++;
+    }
+  } else if (playerChoice === "scissors") {
+    if (computerChoice === "paper") {
+      pScore++;
+    } else {
+      cScore++;
+    }
+  }
+  playerScore.innerHTML = pScore;
+  computerScore.innerHTML = cScore;
+  if (pScore === 5 || cScore === 5) {
+    sumScore();
+  }
 }
