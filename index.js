@@ -21,7 +21,9 @@ const resetGame = () => {
   playerScore.innerHTML = pScore;
   computerScore.innerHTML = cScore;
   playerHand.src = "./css/images/rock.png";
+  playerHand.classList.add("rock");
   computerHand.src = "./css/images/rock.png";
+  computerHand.classList.remove("rock");
 };
 
 const displayModal = () => {
@@ -55,8 +57,17 @@ const sumScore = () => {
 function playerOptions() {
   options.forEach((op) => {
     op.addEventListener("click", function () {
-      playerHand.src = `./css/images/${this.classList.value}.png`;
       playerChoice = this.classList.value;
+      if (playerChoice === "scissors") {
+        playerHand.classList.remove("rock");
+      }
+
+      if (playerChoice === "paper" || playerChoice === "rock") {
+        playerHand.classList.add("rock");
+        console.log(this);
+      }
+      playerHand.src = `./css/images/${playerChoice}.png`;
+
       computerOptions();
     });
   });
@@ -65,6 +76,12 @@ function playerOptions() {
 function computerOptions() {
   const computerHands = ["rock", "paper", "scissors"];
   computerChoice = computerHands[Math.floor(Math.random() * 3)];
+
+  if (computerChoice === "scissors") {
+    computerHand.classList.add("rock");
+  } else {
+    computerHand.classList.remove("rock");
+  }
 
   computerHand.src = `./css/images/${computerChoice}.png`;
 
