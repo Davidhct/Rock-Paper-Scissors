@@ -5,6 +5,7 @@ const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 let playerScore = document.getElementById("player-score");
 let computerScore = document.getElementById("computer-score");
+
 document.querySelector(".close-modal").addEventListener("click", closeModal);
 
 let playerChoice;
@@ -15,15 +16,24 @@ let cScore = 0;
 
 playerOptions();
 
+const resetAnimation = () => {
+  playerHand.style.animation = "";
+  computerHand.style.animation = "";
+};
+
+const resetHands = () => {
+  playerHand.src = "./css/images/rock.png";
+  playerHand.classList.add("rock");
+  computerHand.src = "./css/images/rock.png";
+  computerHand.classList.remove("rock");
+};
+
 const resetGame = () => {
   pScore = 0;
   cScore = 0;
   playerScore.innerHTML = pScore;
   computerScore.innerHTML = cScore;
-  playerHand.src = "./css/images/rock.png";
-  playerHand.classList.add("rock");
-  computerHand.src = "./css/images/rock.png";
-  computerHand.classList.remove("rock");
+  resetHands();
 };
 
 const displayModal = () => {
@@ -57,17 +67,24 @@ const sumScore = () => {
 function playerOptions() {
   options.forEach((op) => {
     op.addEventListener("click", function () {
-      playerChoice = this.classList.value;
-      if (playerChoice === "scissors") {
-        playerHand.classList.remove("rock");
-      }
+      resetHands();
+      console.log(playerHand);
+      playerHand.style.animation = "shakePlayer 2s ease";
+      computerHand.style.animation = "shakeComputer 2s ease";
 
-      if (playerChoice === "paper" || playerChoice === "rock") {
-        playerHand.classList.add("rock");
-      }
-      playerHand.src = `./css/images/${playerChoice}.png`;
+      let time = setTimeout(() => {
+        playerChoice = this.classList.value;
+        if (playerChoice === "scissors") {
+          playerHand.classList.remove("rock");
+        }
 
-      computerOptions();
+        if (playerChoice === "paper" || playerChoice === "rock") {
+          playerHand.classList.add("rock");
+        }
+        playerHand.src = `./css/images/${playerChoice}.png`;
+        computerOptions();
+        clearInterval(time);
+      }, 2000);
     });
   });
 }
@@ -85,6 +102,7 @@ function computerOptions() {
   computerHand.src = `./css/images/${computerChoice}.png`;
 
   checkHands();
+  resetAnimation();
 }
 
 function checkHands() {

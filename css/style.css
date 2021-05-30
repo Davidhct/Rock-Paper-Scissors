@@ -54,10 +54,6 @@ body {
   transform: rotateY(180deg);
 }
 
-/* .rotate-hand {
-  transform: rotateY(180deg);
-} */
-
 #scissors:active,
 #rock:active,
 #paper:active {
@@ -131,6 +127,66 @@ button {
   display: none;
 }
 
+@keyframes shakePlayer {
+  0% {
+    transform: rotateY(180deg) translateY(0px);
+  }
+  15% {
+    transform: rotateY(180deg) translateY(-50px);
+  }
+  25% {
+    transform: rotateY(180deg) translateY(0px);
+  }
+  35% {
+    transform: rotateY(180deg) translateY(-50px);
+  }
+  50% {
+    transform: rotateY(180deg) translateY(0px);
+  }
+  65% {
+    transform: rotateY(180deg) translateY(-50px);
+  }
+  75% {
+    transform: rotateY(180deg) translateY(0px);
+  }
+  85% {
+    transform: rotateY(180deg) translateY(-50px);
+  }
+  100% {
+    transform: rotateY(180deg) translateY(0px);
+  }
+}
+
+@keyframes shakeComputer {
+  0% {
+    transform: translateY(0px);
+  }
+  15% {
+    transform: translateY(-50px);
+  }
+  25% {
+    transform: translateY(0px);
+  }
+  35% {
+    transform: translateY(-50px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  65% {
+    transform: translateY(-50px);
+  }
+  75% {
+    transform: translateY(0px);
+  }
+  85% {
+    transform: translateY(-50px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
 @media only screen and (max-width: 782px) {
   .game,
   .hands,
@@ -150,5 +206,21 @@ button {
   }
   .hands img {
     width: 150px;
+  }
+  .winner,
+  .title-option h2,
+  .score h2 {
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width: 378px) {
+  #scissors:active,
+  #rock:active,
+  #paper:active,
+  .options img {
+    width: 80px;
+  }
+  .hands img {
+    width: 120px;
   }
 }

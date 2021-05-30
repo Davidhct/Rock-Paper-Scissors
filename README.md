@@ -17,8 +17,9 @@ Then a model message pops up that says who is the winner.<br><br>
 
 #### The purpose of this project is:
 
-- To practice the Javascript programming language, HTML5 and CSS3.<br><br>
+- To practice the Javascript programming language, HTML5 and CSS3.
+- To practice animation.<br><br>
 
 <kbd><img src="/demo images/img_1.png" width="630" height="300"></kbd><br>
-<kbd><img src="/demo images/img_2.png" width="630" height="300"></kbd>
+<kbd><img src="/demo images/img_2.png" width="630" height="300"></kbd><br>
 <kbd><img src="/demo images/img_3.png" width="630" height="300"></kbd>
