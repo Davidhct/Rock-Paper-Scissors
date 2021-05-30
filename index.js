@@ -130,7 +130,7 @@ function checkHands() {
   }
   playerScore.innerHTML = pScore;
   computerScore.innerHTML = cScore;
-  if (pScore === 5 || cScore === 5) {
+  if (pScore === 3 || cScore === 3) {
     sumScore();
   }
 }
