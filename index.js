@@ -64,7 +64,6 @@ function playerOptions() {
 
       if (playerChoice === "paper" || playerChoice === "rock") {
         playerHand.classList.add("rock");
-        console.log(this);
       }
       playerHand.src = `./css/images/${playerChoice}.png`;
 
@@ -75,7 +74,7 @@ function playerOptions() {
 
 function computerOptions() {
   const computerHands = ["rock", "paper", "scissors"];
-  computerChoice = computerHands[Math.floor(Math.random() * 3)];
+  computerChoice = computerHands[Math.trunc(Math.random() * 3)];
 
   if (computerChoice === "scissors") {
     computerHand.classList.add("rock");
