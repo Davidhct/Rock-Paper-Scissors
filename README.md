@@ -12,7 +12,7 @@ Each player has to do with his hand one of the following three shapes, a punch t
 
 The winner is the one who made paper with the hand and the opposing player made a rock with the hand, or the player made scissors with the hand and the opposing player made a paper with the hand and finally if the player made a rock with the hand and the opposing player made scissors with the hand.<br><br>
 
-In the game here you can accumulate points and whoever reaches 5 points is the winner.
+In the game here you can accumulate points and whoever reaches 3 points is the winner.
 Then a model message pops up that says who is the winner.<br><br>
 
 #### The purpose of this project is:
